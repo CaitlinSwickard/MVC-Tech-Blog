@@ -3,14 +3,14 @@ const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
-// const helpers = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 
 // express app
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ });
+const hbs = exphbs.create({ helpers });
 
 // handlebars app
 app.engine('handlebars', hbs.engine);

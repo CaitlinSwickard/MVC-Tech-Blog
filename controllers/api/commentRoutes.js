@@ -6,10 +6,12 @@ const { Comment } = require('../../models');
 router.get('/', async (req, res) => { 
     try {
         const commentData = await Comment.findAll();
-        res.json(commentData);
-    } catch (err) {
-        res.json(err);
-    }
+        const comments = commentData.map(comment => comment.toJSON());
+        // render to homepage
+        res.status(200).render('homepage', { comments });
+        } catch (err) {
+        res.status(500).json(err);
+        }
 });
 
 module.exports = router;

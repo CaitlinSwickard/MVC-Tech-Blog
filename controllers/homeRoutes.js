@@ -2,9 +2,9 @@ const router = require('express').Router();
 const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Get all blog posts and JOIN with user data
 router.get('/', async (req, res) => {
   try {
-    // Get all blog posts and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
         {
@@ -26,6 +26,31 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+ // get blog by wildcard id
+router.get('/blogs/:id', async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['userName'],
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    res.render('blog', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 
 

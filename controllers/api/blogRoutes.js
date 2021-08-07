@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//  /api/dashboard
+// this is on the dashboard.handlebars page
 
 // create a new blog post
 router.post('/', withAuth, async (req, res) => {

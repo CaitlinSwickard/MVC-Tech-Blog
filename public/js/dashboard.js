@@ -1,7 +1,7 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  // grabbing html docs
+  // grabbing html 
   const title = document.querySelector('#blog-name').value.trim();
   const content = document.querySelector('#blog-desc').value.trim();
 

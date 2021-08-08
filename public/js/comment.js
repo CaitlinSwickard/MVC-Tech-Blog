@@ -2,7 +2,7 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   // gabbing html 
-  const content = document.querySelector('#blog-desc').value.trim();
+  const content = document.querySelector('#blog-desc').value;
 
    // create and post new comment page
    if (content) {

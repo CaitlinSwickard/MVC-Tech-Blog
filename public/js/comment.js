@@ -3,7 +3,7 @@ const newFormHandler = async (event) => {
 
   // gabbing html 
   const comment = document.querySelector('#blog-desc').value;
-  // const blog_id = document.querySelector('#blog-id').textContent;
+  const blog_id = document.querySelector('#blog_id').textContent;
 
    // create and post new comment page
    if (comment) {
@@ -17,7 +17,7 @@ const newFormHandler = async (event) => {
 
     if (response.ok) {
       console.log('yee')
-      
+      document.location.reload();
     } else {
       alert('Failed to create comment');
     }

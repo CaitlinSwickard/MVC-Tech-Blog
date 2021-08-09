@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // this is on the dashboard.handlebars page
@@ -26,6 +26,7 @@ router.delete('/:id', withAuth, async (req, res) => {
           id: req.params.id,
           user_id: req.session.user_id,
         },
+        // do i need to add comment req.body here?? How?
       });
   
       if (!blogData) {

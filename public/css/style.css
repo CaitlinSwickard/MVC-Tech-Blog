@@ -31,6 +31,10 @@ padding: 20px 20px 20px 20px;
   padding: 30px 30px 30px 30px;
 }
 
+#blog_id {
+  display: none;
+}
+
 hr {
   margin-inline-start: 70px;
   margin-inline-end: 70px

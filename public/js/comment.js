@@ -2,13 +2,14 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   // gabbing html 
-  const content = document.querySelector('#blog-desc').value;
+  const comment = document.querySelector('#blog-desc').value;
+  // const blog_id = document.querySelector('#blog-id').textContent;
 
    // create and post new comment page
-   if (content) {
+   if (comment) {
     const response = await fetch(`/api/comments`, {
       method: 'POST',
-      body: JSON.stringify({ content }),
+      body: JSON.stringify({ comment, blog_id }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -16,7 +17,7 @@ const newFormHandler = async (event) => {
 
     if (response.ok) {
       console.log('yee')
-      // document.location.replace('/dashboard');
+      
     } else {
       alert('Failed to create comment');
     }

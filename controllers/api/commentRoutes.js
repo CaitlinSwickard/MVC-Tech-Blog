@@ -18,14 +18,21 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', withAuth, async (req, res) => {
+  console.log("YOU HIT /api/post");
+  console.log("REQ.BODY IS=", req.body);
     try {
       const newComment = await Comment.create({
+      
         ...req.body,
+        comment: req.body.comment,
+        blog_id: req.body.blog_id,
         user_id: req.session.user_id,
+        
       });
   
       res.status(200).json(newComment);
     } catch (err) {
+      console.log(err);
       res.status(400).json(err);
     }
   });

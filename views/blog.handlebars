@@ -6,11 +6,9 @@
   <hr>
 
   <h5>Comments:</h5>  
-  {{!-- {{comment}} --}}
 
   {{#each comments as |comment|}}
-  <p>{{comment.comment}} - {{user.userName}} on {{format_date createdAt}}</p>
-
+  <p>{{comment.comment}} - {{user.userName}} on {{format_date createdAt}} - <a href="./dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a></p>
   {{/each}}
  
 <br>
@@ -18,7 +16,6 @@
 
 {{#if logged_in}}
  <div class="row mt-4" >
-  {{!-- <div class="col-md-6"> --}}
     <form class="form new-blog-form">
       <div class="form-group">
         <label for="blog-desc">Comment here:<span id="blog_id">{{id}}</span></label>

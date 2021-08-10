@@ -1,15 +1,24 @@
 <div class="text-center" id="blog-by-id">
   <h2>{{title}}</h2>
-  <hr>
-  <p>Blog post by: {{user.userName}} on {{format_date createdAt}}</p>
-  <p>{{content}}</p>
-  <hr>
+    <hr>
+      <p>Blog post by: {{user.userName}} on {{format_date createdAt}}</p>
+      <p>{{content}}</p>
+    <hr>
 
-  <h5>Comments:</h5>  
+    <h5>Comments:</h5>  
 
   {{#each comments as |comment|}}
-  <p>{{comment.comment}} - {{user.userName}} on {{format_date createdAt}} - <a href="./dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a></p>
+    <p>{{comment.comment}} - {{user.userName}} on {{format_date createdAt}}</p>
+  
+  {{#if logged_in}}
+    <a href="./dashboard/editComment/{{comment.id}}" class="edit-link">Edit/Delete Comment</a>
+  {{/if}}
   {{/each}}
+
+ 
+  
+
+
  
 <br>
 <br>

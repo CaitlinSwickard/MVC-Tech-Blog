@@ -56,7 +56,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         id: req.params.id,
         user_id: req.session.user_id,
       },
-      // do i need to add comment req.body here?? How?
+      
     });
 
     if (!blogData) {
@@ -66,6 +66,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(blogData);
   } catch (err) {
+    console.log('I AM THE ERROR', err);
     res.status(500).json(err);
   }
 });

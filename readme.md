@@ -4,7 +4,7 @@
 
   * [Installation](#install)
   * [Usage](#usage)
-  * Visit deployed Heroku app [here.]()
+  * Visit deployed Heroku app [here.](https://hidden-escarpment-52432.herokuapp.com/)
 
 
 
